@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Blue spirit companion">
+<defs>
+<radialGradient id="body" cx="50%" cy="48%" r="53%"><stop offset="0" stop-color="#72d0fa"/><stop offset=".55" stop-color="#5ec6f6"/><stop offset=".78" stop-color="#b0eaff"/><stop offset="1" stop-color="#ecfbff"/></radialGradient>
+<radialGradient id="belly"><stop stop-color="#cbf2ff" stop-opacity=".95"/><stop offset="1" stop-color="#c8f3ff" stop-opacity="0"/></radialGradient>
+</defs>
+<path fill="url(#body)" d="M80 17C47 17 22 41 22 70C22 103 46 116 75 135Q80 139 85 135C114 116 138 103 138 70C138 41 113 17 80 17Z"/>
+<ellipse cx="80" cy="97" rx="43" ry="36" fill="url(#belly)"/>
+<g fill="#172c37"><ellipse cx="66" cy="51" rx="7" ry="8.8" transform="rotate(9 66 51)"/><ellipse cx="94" cy="51" rx="7" ry="8.8" transform="rotate(9 94 51)"/></g>
+</svg>
