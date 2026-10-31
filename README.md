@@ -1,6 +1,8 @@
-# HyperC Usability Testing
+# HyperC Usability Testing — 2.0
 
-English-language desktop prototype for knowledge capture, exploration, and sharing.
+[Open the prototype](https://letaaa-00.github.io/HyberC-Usability-Testing/?v=2.0) · [Version 2.0 source](https://github.com/Letaaa-00/HyberC-Usability-Testing/tree/v2.0)
+
+English-language desktop prototype for knowledge capture, exploration, and team sharing.
 
 ## Run locally
 
@@ -8,25 +10,25 @@ English-language desktop prototype for knowledge capture, exploration, and shari
 python3 -m http.server 4173 --directory dist
 ```
 
-Open http://localhost:4173 and choose **Enter demo desktop**. No build or dependencies are required.
+Open http://localhost:4173 and select **Enter demo desktop**. No build or dependencies are required.
 
-## Test flow
+## Version 2.0 test flow
 
-1. Enter the simulated desktop and select apps for capture.
-2. Open a selected app (VS Code includes a simple addition exercise).
-3. Pause/resume recording, finish capture, and answer two follow-up questions.
-4. Explore the knowledge graph, review/edit a case, and upload to the pool.
-5. Browse paid knowledge, company subscriptions, versions, comments, and downloaded skills. Authors can download their own work for free.
+1. Select applications and simulated screen/file permissions, including all or selected project folders.
+2. Open VS Code and complete the addition exercise. The companion tracks ticket progress and shows stage-summary notifications.
+3. Close and reopen the app: ticket progress remains on this browser. Open the list icon to view saved summaries; Cancel dismisses a notification while preserving the unread dot.
+4. Review the daily knowledge list and batch-share selected notes. Accuracy status is separate from sharing; unconfirmed content remains labeled as a draft.
+5. Explore knowledge categories, expand cases, and open the three-column source/code/context view with ticket context.
+6. Try full-window Chat and the Pool scopes: My team, Collaborating teams, and Company. Explore subscriptions, version history, comments, and downloads.
 
 ## Prototype boundaries
 
-Screen capture, voice input, AI replies, payments, subscriptions, and usage are simulated. No microphone or real application capture occurs. Records and downloads metadata are stored locally in the browser; clearing site data resets them. Sample people and company activity are demonstration data. Do not enter real passwords or sensitive information.
+Screen capture, file permissions, voice input, AI replies, payments, subscriptions, and usage are simulated. No real screen, microphone, or project-file access occurs. Sample experts, teams, and tickets are fictional. Data stays in this browser; teammates start with sample data, not your local history. Clear site data or use a fresh browser profile for a fresh test.
 
-## Files
+The daily reminder is checked while the page is open, after 17:00 in the browser’s local time. Stage completion also shows a list notification. It is not an operating-system background notification service.
 
-`dist/index.html` loads the current JavaScript, stylesheet, and artwork in `dist/assets`. This snapshot includes the blue spirit companion. Third-party app icons identify simulated desktop applications.
+All five graph cases currently share the refund code-detail demonstration; ticket context varies. The desktop exercise uses a separate addition-function demo ticket.
 
-## Hosting
+## Publishing and versions
 
-Deploy the `dist` folder to a static web host. Uploading this repository does not itself enable a public website. The original Sites deployment remains separate.
-
+`dist` contains the runnable prototype. `docs` mirrors it for GitHub Pages. Version **v2.0** marks this snapshot; see [CHANGELOG.md](CHANGELOG.md). The separate original Sites deployment is not updated by this repository.

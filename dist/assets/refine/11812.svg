@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="109" height="107" viewBox="0 0 109 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Ellipse 13">
+<path d="M109 53.5C109 83.0472 84.5995 107 54.5 107C24.4005 107 0 83.0472 0 53.5C0 23.9528 24.4005 0 54.5 0C84.5995 0 109 23.9528 109 53.5Z" fill="white"/>
+<mask id="stroke0_0_25" fill="white">
+<path d="M109 53.5C109 83.0472 84.5995 107 54.5 107C24.4005 107 0 83.0472 0 53.5C0 23.9528 24.4005 0 54.5 0C84.5995 0 109 23.9528 109 53.5Z"/>
+</mask>
+<path d="M109 53.5C109 83.0472 84.5995 107 54.5 107C24.4005 107 0 83.0472 0 53.5C0 23.9528 24.4005 0 54.5 0C84.5995 0 109 23.9528 109 53.5Z" stroke-width="4" stroke="#B8B8B8" mask="url(#stroke0_0_25)"/>
+</g>
+</svg>

@@ -1,0 +1,33 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1659" height="855" viewBox="0 0 1659 855" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="SVG">
+<path id="Vector" d="M588.191 438.75L271.473 163.125" stroke-width="1.21291" stroke="#5B5B58"/>
+<path id="Vector_2" d="M588.191 438.75L64.5 389" stroke-width="1.21291" stroke="#5B5B58"/>
+<path id="Vector_3" d="M588.191 438.75L935.073 112.5L588.191 438.75" fill="black" stroke-width="1.21291" stroke="#5B5B58"/>
+<path id="Vector_4" d="M588.191 438.75L1358 615.5" stroke-width="1.21291" stroke="#5B5B58"/>
+<path id="Vector_5" d="M588.191 438.75L1378 100" stroke-width="1.21291" stroke="#5B5B58"/>
+<path id="Vector_6" d="M588.191 438.75L1387.53 382.5L588.191 438.75" fill="black" stroke-width="1.21291" stroke="#5B5B58"/>
+<path id="Vector_7" d="M588.191 438.75L1070.81 669.375L588.191 438.75" fill="black" stroke-width="1.21291" stroke="#5B5B58"/>
+<path id="Vector_8" d="M588.191 438.75L128.195 658.125L588.191 438.75" fill="black" stroke-width="1.21291" stroke="#5B5B58"/>
+<g id="Button - Investigating an addition function:shadow" filter="url(#filter0_dd_0_15)">
+<rect x="531" y="365" width="115" height="115" rx="57.5" fill="white" fill-opacity="0.01" shape-rendering="crispEdges"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_dd_0_15" x="523" y="357" width="131" height="131" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="8" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_0_15"/>
+<feOffset/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.843137 0 0 0 0 0.843137 0 0 0 0 0.823529 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_15"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="7" operator="dilate" in="SourceAlpha" result="effect2_dropShadow_0_15"/>
+<feOffset/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.988235 0 0 0 0 0.988235 0 0 0 0 0.984314 0 0 0 1 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_0_15" result="effect2_dropShadow_0_15"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_0_15" result="shape"/>
+</filter>
+</defs>
+</svg>

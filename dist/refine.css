@@ -1,0 +1,73 @@
+.rf-app{background:#fdfdfc!important;border-radius:0!important;--rf-ink:#30302f}
+.rf-app .mac-titlebar{height:45px;background:linear-gradient(#f7f7f7ed,#eaeaeaeb);font-size:13px}
+.rf-app .mac-titlebar strong{font-weight:400}
+.rf-rail{position:absolute;left:0;top:45px;bottom:0;width:67px;background:#f4f4f3;border-right:1px solid #e8e8e5;display:flex;flex-direction:column;align-items:center;gap:13px;padding:22px 7px 17px;z-index:4}
+.rf-rail>button{width:52px;min-height:53px;padding:7px 6px;border:0;background:none;border-radius:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer}
+.rf-rail .active{background:#e6e6e3}.rf-rail small{font-size:8px;color:#888}.rf-rail .active small{color:#222}.rf-rail img{display:block}
+.rf-bottom{margin-top:auto;display:flex;align-items:center;flex-direction:column;gap:13px}.rf-bottom button{background:none;border:0;cursor:pointer;padding:6px}.rf-bottom .rf-user{border-radius:50%;background:#dededb;width:28px;height:28px;font-size:12px}
+.rf-map{position:absolute;inset:45px 0 0 67px;overflow:hidden}
+.rf-stage{position:absolute;inset:0;overflow:hidden;touch-action:none}
+.rf-art{position:absolute;width:1659px;height:855px;left:50%;top:50%;transform:translate(calc(-50% + var(--rf-x,0px)),calc(-50% + var(--rf-y,0px))) scale(var(--rf-scale,1));transform-origin:center}
+.rf-lines{position:absolute;inset:0;pointer-events:none}
+.rf-category{position:absolute;transform:translate(-50%,-50%);width:90px;height:90px;border-radius:50%;border:0;background:#30302f;color:white;padding:9px;font:11px/14.3px -apple-system,BlinkMacSystemFont,sans-serif;cursor:pointer;white-space:normal}
+.rf-category:hover{background:#474746;box-shadow:0 0 0 5px #e8e8e5}
+.rf-main{width:115px;height:115px;font-size:12px;line-height:16.8px;box-shadow:0 0 0 7px #fcfcfb,0 0 0 8px #d7d7d2}
+.rf-main span{display:block;font-size:12px;opacity:.65;line-height:10px;margin-top:7px}
+.rf-orbit{position:absolute;left:430px;top:269px;width:320px;height:320px;pointer-events:none}
+.rf-case{position:absolute;width:109px;height:107px;transform:translate(-50%,-50%);background:transparent;padding:0;border:0;cursor:pointer;animation:rf-reveal .3s ease both}
+.rf-case img{position:absolute;left:0;top:0;pointer-events:none}
+.rf-case span{position:absolute;inset:15px;display:flex;align-items:center;justify-content:center;font:11px/14.3px -apple-system,BlinkMacSystemFont,sans-serif;color:#111}
+.rf-case.selected{border-radius:50%;box-shadow:0 0 0 7px #fcfcfb,0 0 0 8px #d7d7d2}
+.rf-case:hover{filter:drop-shadow(0 2px 5px #0002)}
+.rf-actions{position:absolute;transform:translateX(-50%);text-align:center}
+.rf-actions>small{position:absolute;left:50%;transform:translateX(-50%);top:-24px;font-size:7px;color:#999;letter-spacing:1.2px;white-space:nowrap}
+.rf-actions>div{display:flex;align-items:center;gap:2px;padding:5px;border:1px solid #ddd;border-radius:9px;background:#fffffff2;box-shadow:0 4px 16px #0000000d}
+.rf-actions button{display:flex;gap:5px;align-items:center;white-space:nowrap;background:none;border:0;border-radius:5px;padding:5px 7px;font-size:10px;color:#30302f;cursor:pointer}
+.rf-actions .rf-manage{background:#30302f;color:#fff}
+.rf-composer{position:absolute;bottom:39px;left:19.53%;right:19.53%;height:58px;border:1px solid #e5e8ef;background:#fafbfd;border-radius:13px;display:flex;align-items:center;gap:10px;padding:9px 13px}
+.rf-composer>img{width:44px;height:40px;object-fit:cover}
+.rf-composer input{flex:1;min-width:0;border:0;background:transparent;font:12px -apple-system,BlinkMacSystemFont,sans-serif;outline:none}
+.rf-composer button{border:1px solid #e7e9ee;border-radius:50%;width:29px;height:29px;background:none;cursor:pointer}
+.rf-prompts{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:5px;white-space:nowrap}
+.rf-prompts button{font-size:9px;color:#999;border:1px solid #eee;background:#fafafa;border-radius:4px;padding:4px 7px;cursor:pointer}
+.rf-zoom{position:absolute;bottom:22px;left:20px;display:flex;align-items:center;gap:3px;padding:4px;border:1px solid #dddddd87;border-radius:9px;background:#ffffffd9}
+.rf-zoom button{width:24px;height:25px;border:0;background:none;color:#999;cursor:pointer}
+.rf-zoom button:last-child{border-left:1px solid #eee;width:28px;font-size:9px}.rf-zoom span{font-size:9px;color:#999}
+@keyframes rf-reveal{from{opacity:0}to{opacity:1}}
+/* Refine frame 3 uses the same case components with a lighter, narrower shell. */
+.nb-native{grid-template-columns:67px 1fr;grid-template-rows:45px minmax(0,1fr);border-radius:0;background:#fdfdfc}
+.nb-native>.mac-titlebar{height:45px;background:linear-gradient(#f7f7f7ed,#eaeaeaeb)}
+.nb-native>.mac-titlebar strong{font-weight:400}
+.nb-native>.nb-header{display:none}
+.nb-native>.nb-body{grid-row:2;grid-column:2}
+.nb-native>.nb-rail{grid-row:2;padding:22px 7px 17px;background:#f4f4f3}
+.nb-native .nb-rail>button[data-nb="review"],.nb-native .nb-rail-bottom button{display:none}
+.nb-native .nb-rail button{width:52px;min-height:53px;font-size:8px;padding:7px 6px}
+.nb-native .nb-rail small{font-size:8px}
+.nb-native .cl-sources{width:245px;padding:27px 18px}
+.nb-native .cl-context{width:340px;background:#fff}
+.nb-native h1{font-weight:400;font-size:24px}
+.nb-native h2{font-weight:400;font-size:22px}
+.nb-native .cl-center{padding:27px 25px 90px}
+.nb-native .cl-source-group>button.active,.nb-native .cl-block.is-active{background:#f0f4fb!important}
+.nb-native .cl-block.is-active{border-left-color:#a8bfdf}
+.nb-native .cl-studio-grid button.active{background:#edf3fb!important;border-color:#9eafc4;color:#3c597e!important}
+.nb-native .cl-case-head .nb-type{display:block!important;background:#edf3fb;font-size:10px;color:#58759a;border-radius:4px;padding:3px 8px;margin-left:14px}
+.nb-native .nb-composer{position:sticky;bottom:0;z-index:3;margin:14px 0 0;background:#fafbfd}
+.nb-native .nb-composer img{width:44px;height:40px;object-fit:cover}
+@media(max-width:1250px){.nb-native .cl-sources{width:205px}.nb-native .cl-context{width:280px}.nb-native .cl-center{min-width:300px;padding:24px 20px 60px}}
+@media(prefers-reduced-motion:reduce){.rf-case{animation:none}}
+.rf-case .rf-ticket-tip{position:absolute;inset:auto;left:50%;bottom:calc(100% + 14px);transform:translateX(-50%);width:290px;padding:15px 18px;border:1px solid #dededb;border-radius:12px;background:#fff;box-shadow:0 6px 25px #0002;display:flex;flex-direction:column;gap:7px;align-items:flex-start;text-align:left;opacity:0;visibility:hidden;pointer-events:none;z-index:20;font:14px/1.4 -apple-system,BlinkMacSystemFont,sans-serif}
+.rf-ticket-tip strong{font-weight:600}.rf-ticket-tip small{font-size:12px;color:#777}
+.rf-case:hover,.rf-case:focus-visible{z-index:10}
+.rf-case:hover .rf-ticket-tip,.rf-case:focus-visible .rf-ticket-tip{opacity:1;visibility:visible}
+.rf-case.ticket-muted{opacity:.25}.rf-case.ticket-match{border-radius:50%;box-shadow:0 0 0 6px #e4e8ee}
+.ticket-strip{display:flex;align-items:center;gap:10px;margin:0 0 16px;font-size:11px;color:#8a8a8a}
+.nb-native .ticket-chip{padding:4px 8px;border:1px solid #dedede;border-radius:6px;font-size:11px;color:#444;background:#fafafa}
+.ticket-requirement{padding:12px 0 16px;margin-bottom:16px;border-bottom:1px solid #eee}
+.ticket-requirement small{font-size:9px;letter-spacing:1px;color:#999}
+.ticket-requirement p{font-size:11px;line-height:1.6;color:#777}
+.nb-modal .ticket-meta{font-size:12px;color:#888}
+.nb-modal h3{margin-top:22px}.nb-modal li{margin:8px 0;line-height:1.6}
+.nb-modal blockquote{margin:0;border-left:2px solid #ddd;padding:4px 16px;color:#666}
+.nb-modal .ticket-note{font-size:12px;background:#f6f6f5;padding:12px;border-radius:8px;margin-top:20px}
