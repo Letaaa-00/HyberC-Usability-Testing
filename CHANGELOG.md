@@ -1,5 +1,16 @@
 # Changelog
 
+## UX revision — 2026-11-01
+
+- Replace password entry with Enter Demo.
+- Make Dashboard the primary destination, with today’s records, recording controls, and Knowledge Market access.
+- Rename Knowledge to My Map and Pool to Knowledge Market.
+- Add structural map editing, task-detail arrows, and guidance to review accuracy before upload.
+- Unify workspace size, rounded frame, colors, and expanded-window behavior.
+- Simplify onboarding copy and combine note entry modes with saved-record feedback.
+- Keep recording controls visible when the agent navigation is collapsed.
+- Publish the complete project and GitHub Pages under danlinhuang0428-collab.
+
 ## 2.0 — 2026-10-30
 
 - Restore the minimal macOS knowledge map and case expansion visual style.
