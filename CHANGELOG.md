@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.0 — 2026-11-01
+
+- Refine setup with balanced feature tiles and return to the desktop after setup.
+- Restore compact ticket progress and contextual follow-up questions below the agent.
+- Save text or simulated voice answers locally; show an unread review-list reminder without opening the workspace automatically.
+- Remove redundant recording buttons from the agent and Dashboard.
+- Rename the knowledge market to Knowledge Library and improve map guidance and the agent composer.
+- Link Review sources and map details to the three-column source/code/knowledge view.
+- Add contextual Back to My Map / Back to Dashboard navigation.
+
 ## UX revision — 2026-11-01
 
 - Replace password entry with Enter Demo.

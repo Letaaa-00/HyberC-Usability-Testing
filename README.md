@@ -1,4 +1,4 @@
-# HyperC Usability Testing — UX revision
+# HyperC Usability Testing — Version 4
 
 [Open the prototype](https://danlinhuang0428-collab.github.io/HyberC-Usability-Testing/) · [Project source](https://github.com/danlinhuang0428-collab/HyberC-Usability-Testing)
 
@@ -16,7 +16,17 @@ Open http://localhost:4173 and select **Enter Demo**. No build or dependencies a
 
 Check that port 4173 is unused before starting the server. If another project is listening there, use a different unused port. This server is temporary, with no background service or automatic restart.
 
-## UI/UX revision
+## Version 4
+
+- Refine setup with balanced feature tiles and return to the desktop after setup.
+- Restore compact ticket progress and contextual follow-up questions below the agent.
+- Save text or simulated voice answers locally; show an unread review-list reminder without opening the workspace automatically.
+- Remove redundant recording buttons from the agent and Dashboard.
+- Rename the knowledge market to Knowledge Library and improve map guidance and the agent composer.
+- Link Review sources and map details to the three-column source/code/knowledge view.
+- Add contextual Back to My Map / Back to Dashboard navigation.
+
+## Earlier UI/UX revision (historical)
 
 - The desktop **Knowledge Capture** icon opens **Dashboard**, the first destination in the shared sidebar. The former `#review` URL remains compatible; new navigation uses `#dashboard`.
 - Setup completes with **Your workspace is ready → Go to dashboard**. Settings can also close back to the current workspace page.
