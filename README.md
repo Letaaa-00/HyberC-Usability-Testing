@@ -1,6 +1,6 @@
 # HyperC Usability Testing — Version 4
 
-[Open the prototype](https://danlinhuang0428-collab.github.io/HyberC-Usability-Testing/) · [Project source](https://github.com/danlinhuang0428-collab/HyberC-Usability-Testing)
+[Open the prototype](https://letaaa-00.github.io/HyberC-Usability-Testing/) · [Project source](https://github.com/Letaaa-00/HyberC-Usability-Testing)
 
 Based on [Letaaa-00’s version 2.0](https://github.com/Letaaa-00/HyberC-Usability-Testing/tree/v2.0), with subsequent UI/UX revisions in this repository.
 
