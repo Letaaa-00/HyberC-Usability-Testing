@@ -11,29 +11,34 @@ let permissions;try{permissions=JSON.parse(localStorage.getItem('capture-permiss
 function persist(){localStorage.setItem('capture-permissions-v1',JSON.stringify(permissions))}
 const originalApps=apps;apps=function(){return originalApps().replace('<div class="filterbar">',`<section class="capture-permissions"><h2>Capture permissions</h2><div class="permission-toggles"><label><input type="checkbox" data-permission="record" ${permissions.record?'checked':''}> Record screen activity</label><label><input type="checkbox" data-permission="files" ${permissions.files?'checked':''}> Read linked files</label></div>${permissions.files?`<div class="folder-scope"><label><input type="radio" name="folder-scope" data-folder-scope="all" ${permissions.scope==='all'?'checked':''}> All project folders</label><label><input type="radio" name="folder-scope" data-folder-scope="selected" ${permissions.scope==='selected'?'checked':''}> Choose folders</label>${permissions.scope==='selected'?`<div class="folder-options">${['Work projects','Research','Shared documentation'].map(f=>`<label><input type="checkbox" data-folder="${f}" ${permissions.folders.includes(f)?'checked':''}> ▱ ${f}</label>`).join('')}</div>`:''}</div>`:''}<small>Demo permissions · No device access</small></section><div class="filterbar">`)};
 let savedTicket;try{savedTicket=JSON.parse(localStorage.getItem('demo-ticket-progress'))}catch{}
-let step=savedTicket?.step||0,finished=!!savedTicket?.finished,ticketActive=!!savedTicket?.active,reminder=false,notice='Notes are ready for review.';
-let completed=new Set(savedTicket?.completed||[]);
+let step=0,finished=false,ticketActive=false,reminder=false,notice='Notes are ready for review.';
+let completed=new Set();
+window.resetDemoTicket=()=>{step=0;finished=false;ticketActive=false;reminder=false;completed.clear();state.sessionActive=false;state.captureStarted=false;state.recording=false;state.testResult=null;state.code='function add(a, b) {\n  return a - b;\n}';saveTicket()};
 function saveTicket(){localStorage.setItem('demo-ticket-progress',JSON.stringify({step,finished,active:ticketActive,completed:[...completed],code:state.code}))}
-if(savedTicket?.code)state.code=savedTicket.code;
-function milestone(id,title,summary){if(completed.has(id))return;completed.add(id);window.addStageKnowledge?.(id,title,summary);notice=title+' · Added to your list.';reminder=true;setUnread(true);saveTicket()}
+
+function milestone(id,title,summary){if(completed.has(id))return;completed.add(id);window.addStageKnowledge?.(id,title,summary);setUnread(true);saveTicket()}
 
 let unread=localStorage.getItem('daily-list-unread')==='true';
 function setUnread(value){unread=value;localStorage.setItem('daily-list-unread',String(value))}
 
 
+function progress(){const current=finished?5:step+1;return `<section class="ticket-progress ticket-progress-minimal"><div class="ticket-progress-meter"><span>${current}/5</span><div class="ticket-track" role="progressbar" aria-label="Ticket progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="${current}"><i style="width:${current*20}%"></i></div></div><div class="ticket-progress-step"><span>Current status</span><strong>${['Investigating','Implementing','Validating','Summarizing','Complete'][current-1]}</strong></div></section>`}
+const baseAgent=agent;agent=function(){return baseAgent().replace('<nav class="agent-tools"',`${ticketActive||finished?progress():''}${reminder&&!state.review?`<section class="agent-daily-note"><p>${esc(notice)}</p><div><button data-nb="review">View today’s list →</button><button data-daily-cancel>Cancel</button></div></section>`:''}<nav class="agent-tools"`).replace('aria-label="Dashboard">',`aria-label="Dashboard" class="daily-list-button">${unread?'<i class="daily-unread-dot"></i>':''}`)};
 window.captureAllowed=()=>permissions.record;
 window.onRecordingStarted=()=>{finished=false;step=0;completed.clear();ticketActive=true;saveTicket()};
-const originalLaunch=launchApp;launchApp=function(id){originalLaunch(id);if(id==='vscode'){ticketActive=true;saveTicket()}if(!permissions.record){state.recording=false}render()};
+const originalLaunch=launchApp;launchApp=function(id){const appId=id==='chrome'?'browser':id;if(!state.sessionActive&&state.selected.includes(appId)&&permissions.record){state.sessionActive=true;state.sessionId=crypto.randomUUID();state.captureStarted=true;if(!ticketActive&&!finished)window.onRecordingStarted?.()}originalLaunch(id);if(id==='vscode'){ticketActive=true;saveTicket()}if(!permissions.record){state.recording=false}render()};
+const previousEndApp=endApp;endApp=function(){const wasCode=state.codeOpen||state.activeApp==='vscode';if(wasCode&&state.sessionActive){const priorStep=step,wasFinished=finished;finishCapture();if(!wasFinished&&!state.testResult?.passed){step=priorStep;finished=false;ticketActive=true;saveTicket()}}previousEndApp();if(wasCode){notice='Notes are ready to review.';reminder=true;setUnread(true);state.agentCollapsed=false;state.agentPanel=null;render()}};
 const originalToggle=toggleRecording;toggleRecording=function(){if(!permissions.record){toast('Enable screen recording in Settings first.');return}originalToggle()};
-const originalRun=runExercise;runExercise=function(){originalRun();if(state.recording&&state.testResult?.passed){milestone('implementation','Implementation complete','Changed the arithmetic operator from subtraction to addition.');step=Math.max(step,3);milestone('validation','Validation complete','The positive, negative, and zero-input examples passed.')}saveTicket();render()};
-const originalFinish=finishCapture;finishCapture=function(){if(!state.sessionActive)return;if(originalFinish()){ticketActive=false;step=4;finished=true;notice='Recording saved. Review it in Dashboard.';reminder=true;saveTicket();render()}};
+const originalRun=runExercise;runExercise=function(){originalRun();if(state.recording&&state.testResult?.passed){milestone('implementation','Implementation complete','Changed the arithmetic operator from subtraction to addition.');step=Math.max(step,3);milestone('validation','Validation complete','The positive, negative, and zero-input examples passed.')}saveTicket();render();};
+const originalFinish=finishCapture;finishCapture=function(){if(!state.sessionActive)return;if(originalFinish()){ticketActive=true;step=4;finished=true;saveTicket();render()}};
 document.addEventListener('click',e=>{const scopeButton=e.target.closest('[data-wf-scope]');if(scopeButton){scope=scopeButton.dataset.wfScope;kb.poolItem=null;render()}if(state.recording&&e.target.closest('[data-action="apply-fix"]')){ticketActive=true;step=Math.max(step,2);milestone('investigation','Investigation complete','Identified subtraction where addition was expected.');milestone('implementation','Implementation complete','Changed the arithmetic operator from subtraction to addition.');saveTicket();render()}});
 document.addEventListener('input',e=>{if(state.recording&&e.target.id==='practice-code'){ticketActive=true;step=Math.max(step,1);milestone('investigation','Investigation complete','Identified the operator in the addition function as the change to investigate.');saveTicket();const panel=document.querySelector('.desktop-agent');if(panel)panel.outerHTML=agent();}});
 document.addEventListener('change',e=>{const t=e.target;if(t.dataset.permission){permissions[t.dataset.permission]=t.checked;if(!permissions.record){state.recording=false}persist();render()}if(t.dataset.folderScope){permissions.scope=t.dataset.folderScope;persist();render()}if(t.dataset.folder){permissions.folders=t.checked?[...new Set([...permissions.folders,t.dataset.folder])]:permissions.folders.filter(f=>f!==t.dataset.folder);persist()}});
-function dailyReminder(){const day=new Date().toLocaleDateString('en-CA');if(new Date().getHours()>=17&&localStorage.getItem('daily-summary-seen')!==day&&state.screen==='desktop'){notice='Notes are ready for review.';reminder=true;setUnread(true);localStorage.setItem('daily-summary-seen',day);render()}}
+
 window.markDailyListUnread=()=>setUnread(true);
+window.showDailyListReminder=()=>{notice='New notes are ready to check.';reminder=true;setUnread(true)};
 window.markDailyListRead=()=>{reminder=false;setUnread(false)};
 document.addEventListener('click',e=>{if(e.target.closest('[data-daily-cancel]')){reminder=false;render();return}if(e.target.closest('[data-nb="review"]')){reminder=false;setUnread(false)}},true);
-setInterval(dailyReminder,30000);
-render();dailyReminder();
+
+render();
 })();
